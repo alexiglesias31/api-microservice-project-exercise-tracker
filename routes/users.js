@@ -15,4 +15,9 @@ router.route('/api/users').post(async (req,res) => {
     })
 })
 
+router.route('/api/users').get(async (req,res) => {
+    const users = await User.find({}).select('username _id')
+    res.json(users)
+})
+
 module.exports = router
